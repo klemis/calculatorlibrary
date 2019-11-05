@@ -12,7 +12,7 @@ build:
         - pip install -r requirements.txt
 
 # Run linter and tests
-test
+test:
     image: python:3.7
     stage: test
     script:
