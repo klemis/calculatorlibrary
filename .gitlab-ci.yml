@@ -1,8 +1,7 @@
 stages:
     - build
-    - test
 
-# Create virtual env and install dependencies
+# Create virtual env install dependencies, run linter and tests
 build:
     image: python:3.7
     stage: build
@@ -10,12 +9,5 @@ build:
         - python3 -m venv venv
         - . venv/bin/activate
         - pip install -r requirements.txt
-
-# Run linter and tests
-test:
-    image: python:3.7
-    stage: test
-    script:
-        - . venv/bin/activate
         - flake8 --exclude=venv* --statistics
         - pytest -v --cov=calculator
